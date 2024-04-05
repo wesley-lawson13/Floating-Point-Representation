@@ -1,11 +1,8 @@
-/* 
- * Author: Wesley Lawson - lawsonwe@bc.edu
- */
-
 #include <stdio.h>
 
 #include "fp_analyzer.h"
 
+// checks if a floating-point number is in normalized or denormalized form.
 void print_reconstitution(struct Components c) {
     if (c.exponent == 0) {
         print_denormalized(c);
@@ -14,6 +11,7 @@ void print_reconstitution(struct Components c) {
     }
 }
 
+// computes the value of the power of 2 exponent. 
 FP_TYPE power_of_2(int exponent) {
     FP_TYPE result = 1.0;
     int index;
@@ -29,6 +27,7 @@ FP_TYPE power_of_2(int exponent) {
     return result;
 }
 
+// prints an appropriate output for the input 0 or a very small fraction. 
 void print_denormalized(struct Components c) {
     if (c.mantissa == 0) {
         printf("Original value: ");
@@ -63,6 +62,7 @@ void print_denormalized(struct Components c) {
     }
 }
 
+// prints an appropriate output for normalized floating-point inputs. 
 void print_normalized(struct Components c) {
     puts("Original value:");
     int sign;
@@ -94,6 +94,7 @@ void print_normalized(struct Components c) {
     printf("  = %.45f\n", product);
 }
 
+// Prints the binary representation of each component of a floating-point number. 
 void print_components(U_TYPE input, struct Components c) {
     printf("All bits: ");
     print_bits(input, FP_SIZE);
@@ -105,6 +106,7 @@ void print_components(U_TYPE input, struct Components c) {
     print_bits(c.mantissa, MANTISSA_LENGTH);
 }
 
+// Computes and prints the binary representation of a floating-point number. 
 void print_bits(U_TYPE input, int num_bits) {
     U_TYPE mask = 1ul << (num_bits - 1);
     while (mask) {
