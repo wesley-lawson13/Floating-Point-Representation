@@ -1,8 +1,3 @@
-/* 
- * PA2
- * Author: Wesley Lawson - lawsonwe@bc.edu
- */
-
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
