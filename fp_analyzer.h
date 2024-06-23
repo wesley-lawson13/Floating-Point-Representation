@@ -1,7 +1,3 @@
-/*
- * Author: Wesley Lawson - lawsonwe@bc.edu
- */
-
 #ifdef DOUBLE
 #define FP_TYPE double
 #define FP_SCAN_TYPE "%lf"
